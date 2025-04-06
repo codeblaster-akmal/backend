@@ -8,12 +8,12 @@ import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
 import { sequelize } from './config/database';
-import { dataAccess } from "@benevo/data-access"; //example import from shared libs
-import { utils } from "@benevo/utils"; //example import from shared libs
+import { DataAccessModule } from "@backend/data-access"; //example import from shared libs
+import { UtilsModule } from "@backend/utils"; //example import from shared libs
 
 async function bootstrap() {
-  console.log('dataAccess', dataAccess())
-  console.log('dataAccess', utils())
+  console.log('dataAccessModule', DataAccessModule)
+  console.log('utilsModule', UtilsModule)
   const app = await NestFactory.create(AppModule);
   await sequelize.sync();
   const globalPrefix = 'api';
